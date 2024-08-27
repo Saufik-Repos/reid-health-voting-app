@@ -31,7 +31,7 @@ const JoyAtWorkVideoVoting = (props) => {
         debugger;
         setState((prevState) => ({
           ...prevState,
-          JoyAtWorkVideoVotingListItem: response,
+          JoyAtWorkVideoVotingListItem: response.data,
         }));
       })
       .catch(error => {
@@ -47,7 +47,7 @@ const JoyAtWorkVideoVoting = (props) => {
         debugger;
         setState((prevState) => ({
           ...prevState,
-          isUserAlreadyVoted: response,
+          isUserAlreadyVoted: response.data,
         }));
       })
       .catch(error => {
