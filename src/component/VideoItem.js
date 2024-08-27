@@ -13,7 +13,7 @@ console.log(JoyAtWorkVideoVotingItem,"JoyAtWorkVideoVotingItem");
     
     const votePercentage = JoyAtWorkVideoVotingItem?.vote_count && totalVotes ? Math.floor(JoyAtWorkVideoVotingItem.vote_count / totalVotes * 100) : 0;
     const votes = {
-        marginLeft: `calc(${votePercentage < 3 ? 3 : votePercentage > 99 ? 99 : votePercentage}% - 27px)`
+        left: `calc(${votePercentage < 3 ? 3 : votePercentage > 99 ? 99 : votePercentage}% - 27px)`
     }
     const widthStyle = {
         width: `${votePercentage}%`,

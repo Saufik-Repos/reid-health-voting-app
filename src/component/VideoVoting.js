@@ -83,7 +83,7 @@ const JoyAtWorkVideoVoting = (props) => {
         isVoting: false,
         selectedItemId: 0,
       }));
-
+      window.scrollTo(0, 0);
       console.log('Item updated successfully in SharePoint.');
     } catch (error) {
       console.error('Error updating item in SharePoint:', error);
