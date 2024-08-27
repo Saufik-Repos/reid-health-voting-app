@@ -19,11 +19,11 @@ const VideoItem = ({ JoyAtWorkVideoVotingItem , totalVotes = 0, selectedItemId =
     }
     const isCheckHandling = (event) => {
         const isChecked = event.target.checked;
-        handleSelectedItem(isChecked ? JoyAtWorkVideoVotingItem.Id : 0);
+        handleSelectedItem(isChecked ? JoyAtWorkVideoVotingItem.id : 0);
     }
 
     return (
-        <label htmlFor={"selectCheck" + JoyAtWorkVideoVotingItem?.Id} className={selectedItemId == JoyAtWorkVideoVotingItem?.Id && isVote ? 'checked-border ' + ch : ch}>
+        <label htmlFor={"selectCheck" + JoyAtWorkVideoVotingItem?.id} className={selectedItemId == JoyAtWorkVideoVotingItem?.id && isVote ? 'checked-border ' + ch : ch}>
             <div className={isThank ? "d-flex gap-4 flex-grow-1" : "d-flex gap-4 align-items-center flex-grow-1"}>
                 <div className="position-relative">
 
@@ -55,7 +55,7 @@ const VideoItem = ({ JoyAtWorkVideoVotingItem , totalVotes = 0, selectedItemId =
                 isVote
                     ?
                     
-                    <input checked={selectedItemId === JoyAtWorkVideoVotingItem?.Id} type="checkbox" name="" onChange={isCheckHandling} className='radio-like-checkbox' id={"selectCheck" + JoyAtWorkVideoVotingItem?.Id} />
+                    <input checked={selectedItemId === JoyAtWorkVideoVotingItem?.id} type="checkbox" name="" onChange={isCheckHandling} className='radio-like-checkbox' id={"selectCheck" + JoyAtWorkVideoVotingItem?.id} />
                     : ""
             }
 

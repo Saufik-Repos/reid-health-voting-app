@@ -28,7 +28,6 @@ const JoyAtWorkVideoVoting = (props) => {
 
     axios.get(baseUrl+'api/voting/GetVideoCompetition_list')
       .then(response => {
-        debugger;
         setState((prevState) => ({
           ...prevState,
           JoyAtWorkVideoVotingListItem: response.data,
@@ -74,7 +73,7 @@ const JoyAtWorkVideoVoting = (props) => {
       await axios.post('api/voting/UpdateVideoCompetition_list', updatedData);
 
       const updatedJoyAtWorkVideoVotingListItem = state.JoyAtWorkVideoVotingListItem.map(item =>
-        item.Id === state.selectedItemId
+        item.id === state.selectedItemId
           ? { ...item, vote_count: item.vote_count ? item.vote_count + 1 : 1 }
           : item
       );
