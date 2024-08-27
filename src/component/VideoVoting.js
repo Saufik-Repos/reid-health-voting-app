@@ -6,7 +6,6 @@ const JoyAtWorkVideoVoting = (props) => {
   const baseUrl = "https://localhost:7035/";
   const [state, setState] = useState({
     isVoting: true,
-    isUserAlreadyVote: false,
     userId: "",
     selectedItemId: 0,
     isVotingResult: false,
@@ -55,7 +54,8 @@ const JoyAtWorkVideoVoting = (props) => {
   }, []);
 
   const handleSelectedItem = (id) => {
-    id = state.videoUserVoteListItem.some(x => x.user_id === state.userId) ? 0 : id;
+    debugger
+    id = state.isUserAlreadyVoted ? 0 : id;
     setState((prevState) => ({
       ...prevState,
       selectedItemId: id,
@@ -145,7 +145,7 @@ const JoyAtWorkVideoVoting = (props) => {
             </div>)
         }
       </>
-      <div className="d-flex flex-column gap-4">
+      <div className="voting-item-box gap-4">
         {state.JoyAtWorkVideoVotingListItem.map((item) => {
           return <VideoItem JoyAtWorkVideoVotingItem={item} selectedItemId={state.selectedItemId} totalVotes={totalVotes} isVote={state.isVoting} isThank={!state.isVoting} handleSelectedItem={handleSelectedItem} submitHandling={submitHandling}/>
         })

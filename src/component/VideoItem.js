@@ -29,7 +29,7 @@ console.log(JoyAtWorkVideoVotingItem,"JoyAtWorkVideoVotingItem");
             <div className={isThank ? "d-flex gap-4 flex-grow-1" : "d-flex gap-4 align-items-center flex-grow-1"}>
                 <div className="position-relative">
 
-                    <iframe key={isThank ? 'thank' : 'no-thank'} width="200px" height="124px" className={isThank ? "d-flex gap-4 flex-grow-1" : "d-flex gap-4 align-items-center flex-grow-1"}
+                    <iframe key={isThank ? 'thank' : 'no-thank'} width="200px" height="124px" className={isThank ? "d-flex gap-4 flex-grow-1 br-11" : "d-flex gap-4 align-items-center br-11 flex-grow-1"}
                         src={JoyAtWorkVideoVotingItem.videolink}
                         title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
 
