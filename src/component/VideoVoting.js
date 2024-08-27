@@ -69,7 +69,7 @@ const JoyAtWorkVideoVoting = (props) => {
         user_id: state.userId
       };
 
-      await axios.post('api/voting/UpdateVideoCompetition_list', updatedData);
+      await axios.post(baseUrl+'api/voting/UpdateVideoCompetition_list', updatedData);
 
       const updatedJoyAtWorkVideoVotingListItem = state.JoyAtWorkVideoVotingListItem.map(item =>
         item.id === state.selectedItemId
