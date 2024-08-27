@@ -2,9 +2,6 @@ import * as React from 'react';
 import { useState } from 'react';
 
 const VideoItem = ({ JoyAtWorkVideoVotingItem , totalVotes = 0, selectedItemId = 0, isConfig = false, isVote = false, isThank = false, handleSelectedItem = (id) => { }, submitHandling= ()=>{} }) => {
-    debugger;
-
-console.log(JoyAtWorkVideoVotingItem,"JoyAtWorkVideoVotingItem");
 
     let ch = "vc-video-card d-flex  justify-content-between align-items-center ";
     if (isVote) {
