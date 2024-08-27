@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import VideoItem from './VideoItem'
 
 const JoyAtWorkVideoVoting = (props) => {
   const baseUrl = "https://localhost:7035/";
@@ -10,13 +11,13 @@ const JoyAtWorkVideoVoting = (props) => {
     selectedItemId: 0,
     isVotingResult: false,
     JoyAtWorkVideoVotingListItem: [],
-    videoUserVoteListItem: [],
+    isUserAlreadyVoted: false,
   });
 
   useEffect(() => {
     const queryParams = new URLSearchParams(window.location.search);
     const isVotingResult = queryParams.get('isVotingResult') === "true";
-    const userId = queryParams.get('isVotingResult');
+    const userId = queryParams.get('userId');
 
     setState((prevState) => ({
       ...prevState,
@@ -25,7 +26,7 @@ const JoyAtWorkVideoVoting = (props) => {
       isVoting: isVotingResult ? false : prevState.isVoting,
     }));
 
-    axios.get(baseUrl+'api/voting//GetVideoCompetition_list')
+    axios.get(baseUrl+'api/voting/GetVideoCompetition_list')
       .then(response => {
         debugger;
         setState((prevState) => ({
@@ -37,14 +38,16 @@ const JoyAtWorkVideoVoting = (props) => {
         console.log(error);
       });
 
-
-
-      axios.get(baseUrl+'api/voting//GetVideoUserVote_list')
+      axios.get(baseUrl+'api/voting/GetVideoUserVote', {
+        params: {
+          user_id: 1,  // Example parameter
+        },
+      })
       .then(response => {
         debugger;
         setState((prevState) => ({
           ...prevState,
-          videoUserVoteListItem: response,
+          isUserAlreadyVoted: response,
         }));
       })
       .catch(error => {
@@ -68,7 +71,7 @@ const JoyAtWorkVideoVoting = (props) => {
         user_id: state.userId
       };
 
-      await axios.post('https://jsonplaceholder.typicode.com/posts', updatedData);
+      await axios.post('api/voting/UpdateVideoCompetition_list', updatedData);
 
       const updatedJoyAtWorkVideoVotingListItem = state.JoyAtWorkVideoVotingListItem.map(item =>
         item.Id === state.selectedItemId
@@ -99,7 +102,7 @@ const JoyAtWorkVideoVoting = (props) => {
       <>
         {
           state.isVoting
-            ? state.videoUserVoteListItem.some(x=>x.user_id === state.userId)?
+            ? state.isUserAlreadyVoted?
             (<div className="d-flex justify-content-end mt-4">
              <label className="already-voted">You have already cast your vote in this competition.</label>
            </div>) : (<h1 className='vc-title'>Please select a video and cast your vote</h1>)
@@ -146,7 +149,7 @@ const JoyAtWorkVideoVoting = (props) => {
       </>
       <div className="d-flex flex-column gap-4">
         {state.JoyAtWorkVideoVotingListItem.map((item) => {
-          return <Greeting JoyAtWorkVideoVotingItem={item} selectedItemId={state.selectedItemId} totalVotes={totalVotes} isVote={state.isVoting} isThank={!state.isVoting} handleSelectedItem={handleSelectedItem} submitHandling={submitHandling}/>
+          return <VideoItem JoyAtWorkVideoVotingItem={item} selectedItemId={state.selectedItemId} totalVotes={totalVotes} isVote={state.isVoting} isThank={!state.isVoting} handleSelectedItem={handleSelectedItem} submitHandling={submitHandling}/>
         })
         }
       </div>
