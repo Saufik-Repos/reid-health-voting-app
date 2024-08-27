@@ -2,7 +2,9 @@ import * as React from 'react';
 import { useState } from 'react';
 
 const VideoItem = ({ JoyAtWorkVideoVotingItem , totalVotes = 0, selectedItemId = 0, isConfig = false, isVote = false, isThank = false, handleSelectedItem = (id) => { }, submitHandling= ()=>{} }) => {
+    debugger;
 
+console.log(JoyAtWorkVideoVotingItem,"JoyAtWorkVideoVotingItem");
 
     let ch = "vc-video-card d-flex  justify-content-between align-items-center ";
     if (isVote) {
@@ -28,7 +30,7 @@ const VideoItem = ({ JoyAtWorkVideoVotingItem , totalVotes = 0, selectedItemId =
                 <div className="position-relative">
 
                     <iframe key={isThank ? 'thank' : 'no-thank'} width="200px" height="124px" className={isThank ? "d-flex gap-4 flex-grow-1" : "d-flex gap-4 align-items-center flex-grow-1"}
-                        src={JoyAtWorkVideoVotingItem.videolink.Url}
+                        src={JoyAtWorkVideoVotingItem.videolink}
                         title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
 
                 </div>

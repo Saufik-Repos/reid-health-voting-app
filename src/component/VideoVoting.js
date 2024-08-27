@@ -43,7 +43,6 @@ const JoyAtWorkVideoVoting = (props) => {
         },
       })
       .then(response => {
-        debugger;
         setState((prevState) => ({
           ...prevState,
           isUserAlreadyVoted: response.data,
@@ -96,8 +95,8 @@ const JoyAtWorkVideoVoting = (props) => {
   }, 0);
 
   return (
-    <>
-    <div  key={state.isVoting ? 'thankDiv' : 'no-thankDiv'} className='vcComp'>
+  <div className='container'>
+      <div  key={state.isVoting ? 'thankDiv' : 'no-thankDiv'} className='vcComp'>
       <>
         {
           state.isVoting
@@ -161,7 +160,7 @@ const JoyAtWorkVideoVoting = (props) => {
         : ("")
     }
 
-  </>
+  </div>
   );
 };
 
