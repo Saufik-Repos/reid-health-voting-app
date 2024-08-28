@@ -89,7 +89,7 @@ const JoyAtWorkVideoVoting = (props) => {
                                 </div>) 
                                 : (<h1 className='vc-title'>Please select a video and cast your vote</h1>)
                             : isVotingResult ? <></>
-                                : (<div className='d-flex justify-content-center align-items-center flex-column'>
+                                : (<div className='d-flex justify-content-center align-items-center flex-column thanak-you-positioning'>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="158" height="200" viewBox="0 0 158 200" fill="none">
                                         <circle opacity="0.05" cx="78.6927" cy="122.693" r="76.6927" fill="#2AA2DB" />
                                         <path d="M106.996 67.0186C107.71 67.6032 97.1216 81.8516 83.3496 98.8285L74.9911 108.963L73.8435 110.348L72.6308 109.093C61.8038 97.984 54.5064 89.7554 55.0261 89.2357C55.5458 88.716 63.7959 96.0567 74.8828 106.819L72.5442 107.057L80.7295 96.8146C94.5014 79.7295 106.26 66.4339 106.996 67.0186Z" fill="#32A4DD" />
