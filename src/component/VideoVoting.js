@@ -3,7 +3,7 @@ import axios from 'axios';
 import VideoItem from './VideoItem'
 
 const JoyAtWorkVideoVoting = (props) => {
-    const baseUrl = "https://reidhealth-voting-api-guemc9awf7dkgngq.eastus-01.azurewebsites.net/";
+    const baseUrl = "https://localhost:7035/"
     const [isVoting, setIsVoting] = useState(true);
     const [userId, setUserId] = useState("");
     const [selectedItemId, setSelectedItemId] = useState(0);
@@ -130,7 +130,7 @@ const JoyAtWorkVideoVoting = (props) => {
                     }
                 </>
                 <div className="voting-item-box gap-4">
-                    {JoyAtWorkVideoVotingListItem.map((item) => {
+                    {(isVoting || isVotingResult) && JoyAtWorkVideoVotingListItem.map((item) => {
                         return <VideoItem JoyAtWorkVideoVotingItem={item} selectedItemId={selectedItemId} totalVotes={totalVotes} isVote={isVoting} isThank={!isVoting} handleSelectedItem={handleSelectedItem} submitHandling={submitHandling} />
                     })
                     }
